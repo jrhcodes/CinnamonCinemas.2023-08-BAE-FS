@@ -39,4 +39,8 @@ public class StaticSeatingPlan {
     public int getNumberOfSeatsPerRow() {
         return numberOfSeatsPerRow;
     }
+
+    public StaticSeat getSeat(char row, int seatNumber) {
+        return null;
+    }
 }
