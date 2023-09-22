@@ -1,0 +1,4 @@
+String label, char firstRowLetter, char firstSeatNumber, int numberOfRows, int seatsPerRow
+Circle, A, 1, 3, 10
+Stalls, D, 1, 5, 5
+Box1, J, 6, 2, 2
