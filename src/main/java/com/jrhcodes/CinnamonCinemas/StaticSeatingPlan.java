@@ -17,7 +17,11 @@ public class StaticSeatingPlan {
         this.numberOfSeatsPerRow = numberOfSeatsPerRow;
         // generate seating plan
         seats = new StaticSeat[numberOfRows][numberOfSeatsPerRow];
-        // for each seat - call constructor
+        for( char row = 0; row < numberOfRows; row++ ) {
+            for( int seatNumber = 0; seatNumber < numberOfSeatsPerRow; seatNumber ++) {
+                seats[row][seatNumber] = new StaticSeat((char) (row+firstRowLetter), seatNumber+firstSeatNumber);
+            }
+        }
     }
 
     public String getLabel() {
@@ -41,6 +45,7 @@ public class StaticSeatingPlan {
     }
 
     public StaticSeat getSeat(char row, int seatNumber) {
-        return null;
+        StaticSeat seat = seats[row-firstRowLetter][seatNumber-firstSeatNumber];
+        return seat;
     }
 }

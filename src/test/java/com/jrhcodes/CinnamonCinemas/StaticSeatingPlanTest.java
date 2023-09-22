@@ -9,7 +9,7 @@ public class StaticSeatingPlanTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "testStaticSeatingPlanConstructor.csv", numLinesToSkip = 1)
-    public void testStaticSeatingPlanConstructor(String label, char firstRowLetter, char firstSeatNumber, int numberOfRows, int seatsPerRow  ) {
+    public void testStaticSeatingPlanConstructor(String label, char firstRowLetter, int firstSeatNumber, int numberOfRows, int seatsPerRow  ) {
         StaticSeatingPlan plan = new StaticSeatingPlan(label, firstRowLetter, firstSeatNumber, numberOfRows, seatsPerRow);
         assertEquals(plan.getFirstSeatNumber(), firstSeatNumber);
         assertEquals(plan.getLabel(), label);
@@ -18,8 +18,7 @@ public class StaticSeatingPlanTest {
     }
     @ParameterizedTest
     @CsvFileSource(resources = "testStaticSeatingPlanConstructor.csv", numLinesToSkip = 1)
-
-    public void testStaticSeatingPlanConstructorSeatValues(String label, char firstRowLetter, char firstSeatNumber, int numberOfRows, int numberOfSeatsPerRow  ) {
+    public void testStaticSeatingPlanConstructorSeatValues(String label, char firstRowLetter, int firstSeatNumber, int numberOfRows, int numberOfSeatsPerRow  ) {
         StaticSeatingPlan plan = new StaticSeatingPlan(label, firstRowLetter, firstSeatNumber, numberOfRows, numberOfSeatsPerRow);
         for(char row = firstRowLetter; row < firstRowLetter + numberOfRows; row++) {
             for( int seatNumber = firstSeatNumber; seatNumber < firstSeatNumber + numberOfSeatsPerRow; seatNumber++) {
@@ -27,7 +26,6 @@ public class StaticSeatingPlanTest {
                 assertEquals(seat.getSeatNumber(), seatNumber);
                 assertEquals(seat.getRow(), row);
             }
-
         }
     }
 }
